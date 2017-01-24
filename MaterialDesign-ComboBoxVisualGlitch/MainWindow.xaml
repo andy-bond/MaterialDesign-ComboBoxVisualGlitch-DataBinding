@@ -1,0 +1,69 @@
+﻿<Controls:MetroWindow x:Class="MaterialDesign_ComboBoxVisualGlitch.MainWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MaterialDesign_ComboBoxVisualGlitch"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        BorderBrush="{DynamicResource WindowTitleColorBrush}"
+        WindowStartupLocation="CenterScreen" ShowIconOnTitleBar="False" TitleCaps="False" MinHeight="600" MinWidth="1400" BorderThickness="4">
+    <!-- Dialog Wrapper -->
+    <materialDesign:DialogHost x:Name="MainWindowDialogHost" Identifier="RootDialog" DialogClosing="MainWindowDialogHost_DialogClosing">
+        <!-- DockPanel for Page Content -->
+        <DockPanel>
+            <!-- ColorZone for Title/Favorites Bar -->
+            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
+                <!-- DockPanel for Title Bar -->
+                <DockPanel Margin="16">
+                    <!-- PopupBox for Settings -->
+                    <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" Panel.ZIndex="1000">
+                        <!-- StackPanel for PopupBox Content -->
+                        <StackPanel>
+                            <!-- Settings Button -->
+                            <Button x:Name="Settings_BTN" Click="Settings_BTN_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
+                                    <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">Settings</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <!-- Separator -->
+                            <Separator/>
+                            <!-- About -->
+                            <Button IsEnabled="False">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="InformationOutline" VerticalAlignment="Center"/>
+                                    <TextBlock Margin="8 0 0 0" VerticalAlignment="Center" Text="{Binding Version_Number, RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:MetroWindow}}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                    <!-- Title -->
+                    <TextBlock x:Name="Title_TB" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="Material Design ComboBox Visual Glitch"/>
+                </DockPanel>
+            </materialDesign:ColorZone>
+            <!-- Grid for Page Contents -->
+            <Grid>
+                <!-- Card to Contain Content -->
+                <materialDesign:Card Margin="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <!-- Grid to contain card content -->
+                    <Grid>
+                        <!-- Content Here -->
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Content</TextBlock>
+                    </Grid>
+                </materialDesign:Card>
+                <!-- SnackBar to send Messages -->
+                <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar" />
+            </Grid>
+        </DockPanel>
+    </materialDesign:DialogHost>
+</Controls:MetroWindow>

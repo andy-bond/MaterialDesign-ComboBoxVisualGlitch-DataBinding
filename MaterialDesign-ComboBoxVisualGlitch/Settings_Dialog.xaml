@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="MaterialDesign_ComboBoxVisualGlitch.Settings_Dialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MaterialDesign_ComboBoxVisualGlitch"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             >
+    <materialDesign:Card VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <DockPanel>
+            <materialDesign:ColorZone DockPanel.Dock="Top" Padding="8" materialDesign:ShadowAssist.ShadowDepth="Depth0" Mode="PrimaryMid">
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22">Settings</TextBlock>
+                </DockPanel>
+            </materialDesign:ColorZone>
+            <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="Done_BTN" Margin="8" Style="{StaticResource MaterialDesignFlatButton}" Command="materialDesign:DialogHost.CloseDialogCommand" Click="Done_BTN_Click">DONE</Button>
+            </StackPanel>
+            <Separator DockPanel.Dock="Bottom" Margin="0"/>
+            <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                    <ListBox x:Name="Settings_LB" SelectedIndex="0" PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp" ItemsSource="{Binding Settings_Pages, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="local:NavigationListBoxItem">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="{Binding Icon}" Margin="0 0 8 0"/>
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Rectangle VerticalAlignment="Stretch" Width="1" Stroke="LightGray" />
+                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ContentControl Content="{Binding ElementName=Settings_LB, Path=SelectedItem.Content}"/>
+                </ScrollViewer>
+            </DockPanel>
+        </DockPanel>
+    </materialDesign:Card>
+</UserControl>

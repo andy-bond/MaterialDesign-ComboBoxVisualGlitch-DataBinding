@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MaterialDesign_ComboBoxVisualGlitch.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Palette_IsDark" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Palette_PrimaryColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">indigo</Value>
+    </Setting>
+    <Setting Name="Palette_AccentColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">red</Value>
+    </Setting>
+    <Setting Name="FileTypeSelection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PDF</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
